@@ -1,6 +1,7 @@
 FROM docker.io/centos:latest 
-RUN [ "yum clean all" ]
-RUN [ "yum-config-manager --disable rhel-sjis-for-rhel-7-server-rpms" ]
-RUN [ "yum install -y rsync" ]
+RUN yum clean all && \
+    yum-config-manager --disable rhel-sjis-for-rhel-7-server-rpms && \
+    yum install -y rsync && \
+    yum clean all
 
-CMD [ "/usr/bin/bash" ]
+CMD [ "echo 'Hello test'" ]
